@@ -1003,8 +1003,9 @@ input[type="range"] {
         justify-content: center;
     }
 
-    .zhan-btn {
-        margin: 0 auto;
+    .banner-buttons {
+        display: flex;
+        justify-content: center;
     }
 
     .tag-wrapper {
