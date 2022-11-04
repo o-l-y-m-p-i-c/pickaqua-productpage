@@ -125,6 +125,7 @@ img {
     min-height: 800px;
     height: 90vh;
     position: relative;
+    background-color: white;
 }
 
 .banner-product-slider .swiper-slide img {
@@ -1062,7 +1063,7 @@ input[type="range"] {
 
     .banner-product-slider .swiper-slide {
         min-height: 400px;
-        background-color: white;
+
     }
 
     .banner-properties .empty,
