@@ -377,17 +377,19 @@ svg {
     display: flex;
     flex-wrap: wrap;
     column-gap: 0px;
-    row-gap: 20px;
+    /* row-gap: 20px; */
     justify-content: space-between;
 }
 
 .properties-item {
+    margin-top: 20px;
     width: 130px;
     text-align: center;
     /* transition: transform 0.2s ease-in-out; */
 }
 
 .properties-item.empty {
+    margin-top: 0px;
     height: 0px;
 }
 
@@ -995,7 +997,9 @@ input[type="range"] {
     }
 
     .tag-wrapper,
-    .banner-properties {
+    .banner-properties,
+    .properties-inner {
+        display: flex;
         justify-content: center;
     }
 
@@ -1010,6 +1014,13 @@ input[type="range"] {
     .banner-product-slider .swiper-slide {
         min-height: 400px;
     }
+
+    .banner-properties .empty,
+    .properties-inner .empty {
+        display: none;
+    }
+
+
 }
 
 @media screen and (max-width:768px) {
