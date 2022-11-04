@@ -236,7 +236,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* color: var(--swiper-navigation-color, var(--swiper-theme-color)); */
+  color: var(--middle-dark-blue);
 }
 
 .swiper-button-prev.swiper-button-disabled,
