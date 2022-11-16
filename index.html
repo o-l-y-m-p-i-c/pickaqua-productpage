@@ -3485,10 +3485,10 @@
             // },
             scale: {
                 min: 0,
-                max: 7,
+                max: 115.5 + 16.5,
                 // max: 100,
                 ticks: {
-                    stepSize: 1,
+                    stepSize: 16.5,
                     major: false
                 },
                 y: {
@@ -3520,24 +3520,7 @@
                     }
                 }
             },
-            // plugins: {
-            //     legend: {
-            //         display: false,
-            //     },
-            //     datalabels: {
-            //         formatter: (value, ctx) => {
-            //             let datasets = ctx.chart.data.datasets;
-            //             if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
-            //                 let sum = datasets[0].data.reduce((a, b) => a + b, 0);
-            //                 let percentage = Math.round((value / sum) * 100) + '%';
-            //                 return percentage;
-            //             } else {
-            //                 return percentage;
-            //             }
-            //         },
-            //         color: '#fff',
-            //     }
-            // },
+
             plugins: {
                 legend: {
                     display: false,
@@ -3548,9 +3531,7 @@
                         }
                     }
                 },
-                // datalabels: {
-                //     display: false
-                // }
+
             },
         };
         const ctx = document.getElementById('myChart');
@@ -3560,7 +3541,7 @@
                 labels: ['Cl, 0%', 'Ca, 0%', 'K, 0%', 'Mg, 0%', 'Na, 2%'],
                 datasets: [{
                     label: '',
-                    data: [0 || 1, 0 || 1, 0 || 1, 0 || 1, 0 || 3],
+                    data: [0 + 16.5, 0 + 16.5, 0 + 16.5, 0 + 16.5, 3 + 16.5],
                     fill: true,
                     borderWidth: 3,
                     // borderColor: '#4691E8',
@@ -3577,7 +3558,7 @@
                     // hoverBackgroundColor: 'transparant'
                 }, {
                     label: '100%',
-                    data: [6, 6, 6, 6, 6],
+                    data: [100 + 16.5, 100 + 16.5, 100 + 16.5, 100 + 16.5, 100 + 16.5],
                     fill: false,
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgb(54, 162, 235)',
