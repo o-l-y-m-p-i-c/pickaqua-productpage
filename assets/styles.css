@@ -339,8 +339,8 @@ svg {
 .zhan-btn {
     display: inline-flex;
     flex-direction: column;
-    min-width: 360px;
-    width: 360px;
+    width: 100%;
+    max-width: 360px;
     /* padding: 3px 20px; */
     border-radius: var(--btn-rounded-radius);
     background: var(--jean-btn-unactive);
@@ -450,7 +450,7 @@ svg {
     flex-wrap: wrap;
     column-gap: 0px;
     /* row-gap: 20px; */
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .properties-item {
@@ -470,9 +470,20 @@ svg {
     /* transform: scale(1.05); */
 }
 
-.properties-item__img {
+.properties-item__img-wrapper {
+    position: relative;
     width: 90px;
     height: 90px;
+}
+
+.properties-item__img {
+    position: abolsute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* width: 90px; */
+    /* height: 90px; */
 }
 
 
@@ -677,7 +688,7 @@ svg {
     --info-width: 25px;
     position: absolute;
     right: calc(var(--info-width) / 2);
-    top: 0%;
+    top: -5%;
     width: var(--info-width);
 }
 
@@ -701,7 +712,8 @@ svg {
 
 
 .minerals-left-inner__paragraph-wrap {
-    margin-left: 60px;
+    margin: 0 60px;
+    /* padding-right: 25px; */
 }
 
 .minerals-right-inner {
@@ -921,7 +933,7 @@ input[type="range"] {
 
 .fast-button {
     padding: 25px 100px;
-    width: 480px;
+    width: 500px;
     height: 80px;
     max-width: 100%;
     display: flex;
@@ -1093,6 +1105,89 @@ input[type="range"] {
 
 
 @media screen and (max-width: 1024px) {
+
+    /*  */
+    * {
+        font-size: 14px;
+    }
+
+    .banner-title {
+        font-size: 28px
+    }
+
+    .other-minerals-wrap {
+        row-gap: 0px;
+    }
+
+    .zhan-btn {
+        max-width: 500px
+    }
+
+    .properties-title,
+    .minerals-left-inner__title,
+    .minerals-right-inner__title,
+    .fast-button__content,
+    .about-water-head__title {
+        font-size: 18px
+    }
+
+    .minerals-right-inner {
+        background: none
+    }
+
+    .minerals-progress-item-wrap {
+        border-radius: unset
+    }
+
+    .properties-item-title {
+        font-size: 13px;
+    }
+
+    /* .tag,
+    .minerals-left-inner__paragraph-wrap *,
+    .banner-water__content-item-bottom-inner *,
+    .minerals-right-inner__paragraph-wrap * {
+        font-size: 14px
+    } */
+
+    .tag-wrapper {
+        margin-top: 5px;
+    }
+
+    .banner-water__content-item-inner-title {
+        padding-right: 10px
+    }
+
+    .about-water__content-item-inner,
+    .banner-water__content-item-inner {
+        padding: 20px 10px;
+    }
+
+    .about-water__content-item-inner-icon,
+    .banner-water__content-item-inner-icon,
+    .fast-button__content-img {
+        width: 25px;
+        min-width: 25px;
+    }
+
+    .about-water-head__title-icon,
+    .properties-title__icon,
+    .minerals-left-inner__title-img,
+    .minerals-right-inner__title-img {
+        min-width: unset;
+        width: 100%;
+        height: 100%;
+        max-width: 30px;
+        max-height: 30px;
+    }
+
+    .properties-item__img-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+
+    /*  */
     .banner-side {
         width: 100%;
     }
@@ -1102,13 +1197,26 @@ input[type="range"] {
 
     }
 
-    .banner-title {
-        text-align: center;
+    .properties-item {
+        width: 100px
     }
 
-    .tag-wrapper,
-    .banner-properties,
-    .properties-inner {
+    .properties {
+        padding: 10px 10px
+    }
+
+    .minerals-right-inner {
+        padding: 0
+    }
+
+
+
+    /* .banner-title {
+        text-align: center;
+    } */
+
+
+    .banner-properties {
         display: flex;
         justify-content: center;
     }
@@ -1118,54 +1226,72 @@ input[type="range"] {
         justify-content: center;
     }
 
-    .tag-wrapper {
-        margin-top: var(--banner-margin-top-gap);
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none !important
     }
+
+    /* .tag-wrapper {
+        margin-top: var(--banner-margin-top-gap);
+    } */
 
     .banner-product-slider .swiper-slide {
-        min-height: 400px;
-
+        min-height: 320px;
+        height: 60vh
     }
 
-    .banner-properties .empty,
-    .properties-inner .empty {
+    .minerals-left-inner__paragraph-wrap {
+        margin: 0 40px;
+    }
+
+    .banner-properties .empty {
         display: none;
     }
 
+    .about-water__content {
+        margin-top: 0px;
+    }
 
 }
 
 @media screen and (max-width:768px) {
+    :root {
+        --section-margin-top-gap: 30px
+    }
+
     .minerls-side {
         width: 100%;
     }
 
-    .fast-button-container,
-    .minerals,
-    .about-water,
-    .properties-wrapper {
+    /* .fast-button-container, */
+    /* .minerals, */
+    /* .about-water, */
+    /* .properties-wrapper {
         margin-top: 30px;
     }
 
+    .minerals {
+        margin-top: 30px
+    } */
 }
 
 @media screen and (max-width:500px) {
     .fast-button {
-        width: 280px;
+        width: calc(100% - 20px);
         padding-left: 20px;
         padding-right: 20px;
     }
 
     .fast-button__float {
-        display: none;
+        /* display: none; */
 
     }
 }
 
 
 @media screen and (max-width: 400px) {
-    .zhan-btn {
+    /* .zhan-btn {
         min-width: 280px;
         width: 280px;
-    }
+    } */
 }
