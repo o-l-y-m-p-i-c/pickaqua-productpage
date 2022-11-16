@@ -1280,6 +1280,7 @@ input[type="range"] {
         width: calc(100% - 20px);
         padding-left: 20px;
         padding-right: 20px;
+        height: 70px
     }
 
     .fast-button__float {
