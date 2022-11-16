@@ -1032,7 +1032,11 @@ input[type="range"] {
 
 .banner-water__content-item-inner-title,
 .about-water__content-item-inner-title {
-    font-size: var(--h3-size)
+    font-size: var(--h3-size);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: manual;
+
 }
 
 .banner-water__content-item-inner {
