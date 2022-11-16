@@ -34,24 +34,35 @@
     --paragraph-font-weight: 400;
     --other-font-weight: 300;
 
-    --icon-width: 35px;
+    --icon-width: 30px;
 
     --banner-margin-top-gap: 40px;
     --section-margin-top-gap: 60px;
+
+    --body-bg: linear-gradient(90deg, #00A4FF 0%, #00CAFF 100%);
+
+    --order-now-btn-bg: linear-gradient(130.37deg, #FFF6A5, #F6E865);
+    --aqua-shop-btn-bg: linear-gradient(130.37deg, #0924B1 4.58%, #318DE2 21.72%, #3A97EE 43.15%, #090FAC 65%);
+    --rimi-btn-bg: linear-gradient(130.37deg, #DF1A1A 34.58%, #C11B1B 51.72%, #CD3434 53.15%, #B51717 95%);
+    --barbora-btn-bg: linear-gradient(130.37deg, #F84F5A 4.58%, #EC444E 26.72%, #E13A44 33.15%, #F60918 65%);
+    --nuko-btn-bg: linear-gradient(130.37deg, #600665 4.58%, #63066C 21.72%, #6F0A75 33.15%, #662270 65%);
+
+    --jean-btn-active: #EFAC00;
+    --jean-btn-unactive: #FBC037;
+
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    line-height: 1;
+    line-height: 1.2;
     font-family: var(--main-font);
     font-weight: var(--paragraph-font-weight);
 }
 
 body {
-    background: linear-gradient(90deg, #51A7FB 0%, #61C8FD 100%);
-    ;
+    background: var(--body-bg);
     max-width: 100%;
     color: var(--white);
 
@@ -126,6 +137,18 @@ img {
     height: 90vh;
     position: relative;
     background-color: white;
+}
+
+
+.banner-product-slider .swiper-pagination-bullet {
+    border-radius: 0px;
+    width: 15px !important;
+    height: 3px !important;
+    margin: 0 2px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--middle-dark-blue) !important
 }
 
 .banner-product-slider .swiper-slide img {
@@ -277,6 +300,10 @@ svg {
     height: 0px;
 }
 
+.corn-item h4 {
+    font-size: 12px;
+}
+
 .corn-value {
     position: absolute;
     left: 50%;
@@ -313,12 +340,17 @@ svg {
     display: inline-flex;
     flex-direction: column;
     min-width: 360px;
-    padding: 3px 20px;
+    width: 360px;
+    /* padding: 3px 20px; */
     border-radius: var(--btn-rounded-radius);
-    background: var(--light-yellow);
+    background: var(--jean-btn-unactive);
     border: 3px solid var(--dark-yellow);
     transform: scale(1);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out, background 1.2s ease-out;
+}
+
+.zhan-btn:active {
+    background: var(--jean-btn-active);
 }
 
 .zhan-btn * {
@@ -330,7 +362,7 @@ svg {
 }
 
 .zhan-btn.active {
-    border-radius: 40px;
+    border-radius: 20px;
 }
 
 .zhan-btn-inner-wrapper {
@@ -338,12 +370,21 @@ svg {
     justify-content: center;
     align-items: center;
     column-gap: 30px;
+    padding: 5px 20px
 }
 
 .zhan-content-inner {
-    padding: 10px 0;
+    padding: 10px 20px;
     text-align: left;
+    background: url('./img/zhan-inner-bg.png') no-repeat;
+    background-size: contain;
+    background-position: right bottom;
+    /* height: auto; */
+    overflow: hidden;
+}
 
+.zhan-btn.active .zhan-content-inner {
+    /* height: 100% */
 }
 
 .zhan-content-inner {
@@ -358,6 +399,14 @@ svg {
     height: 0px;
     overflow: hidden;
     transition: height 0.2s ease-in-out;
+
+}
+
+.zhan-btn.active .zhan-content {
+    /* display: grid */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-end */
 }
 
 .zhan-btn img {
@@ -421,11 +470,11 @@ svg {
     /* transform: scale(1.05); */
 }
 
-.properties-item__img {}
-
-.properties-item__img img {
-    width: 90px
+.properties-item__img {
+    width: 90px;
+    height: 90px;
 }
+
 
 
 .js-modal-wrap {
@@ -501,7 +550,7 @@ svg {
 }
 
 .js-modal-content p {
-    margin-top: 15px;
+    margin-top: 20px;
     /* font-size: var(--size); */
 }
 
@@ -621,7 +670,7 @@ svg {
 .minerals-left-inner__title-wrap {
     display: flex;
     align-items: center;
-
+    position: relative
 }
 
 .minerals-left-inner__info-btn {
@@ -921,6 +970,7 @@ input[type="range"] {
     align-items: center;
     color: var(--text-color);
     text-align: center;
+    font-weight: 500;
 }
 
 /* 
@@ -980,6 +1030,11 @@ input[type="range"] {
     background-color: #366bbb3d;
 }
 
+.banner-water__content-item-inner-title,
+.about-water__content-item-inner-title {
+    font-size: var(--h3-size)
+}
+
 .banner-water__content-item-inner {
     border: none;
 }
@@ -996,6 +1051,8 @@ input[type="range"] {
     margin-right: 10px;
     width: var(--icon-width);
     min-width: var(--icon-width);
+    max-height: 30px;
+    /* max-width: 30px; */
 }
 
 .about-water__content-item-bottom-content,
@@ -1105,5 +1162,6 @@ input[type="range"] {
 @media screen and (max-width: 400px) {
     .zhan-btn {
         min-width: 280px;
+        width: 280px;
     }
 }

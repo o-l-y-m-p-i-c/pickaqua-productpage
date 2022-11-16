@@ -6,6 +6,10 @@ const swiper = new Swiper('.banner-product-slider', {
     nextEl: '.banner-product-slider .swiper-button-next',
     prevEl: '.banner-product-slider .swiper-button-prev',
   },
+  pagination: {
+    el: '.swiper-pagination',
+    // type: 'bullets',
+  }
   // spaceBetween: 100,
 });
 
@@ -73,7 +77,7 @@ const zhanBtn = document.querySelector('.zhan-btn')
 zhanBtn.onclick = (e) => {
   e.currentTarget.classList.toggle('active')
   const contentWrapper = e.currentTarget.querySelector('.zhan-content')
-  const contentInnerHeight = e.currentTarget.querySelector('.zhan-content-inner').getBoundingClientRect().height
+  const contentInnerHeight = e.currentTarget.querySelector('.zhan-content-inner').getBoundingClientRect().height - 6
   if (e.currentTarget.classList.contains('active')) {
     contentWrapper.style.height = contentInnerHeight + 'px'
   } else {
