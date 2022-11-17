@@ -819,7 +819,8 @@ input[type="range"] {
     opacity: 1;
     /* width: $track-w;  */
     height: 6px;
-    background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+    /* background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%); */
 }
 
 .range::-moz-range-track {
@@ -829,7 +830,8 @@ input[type="range"] {
 
     /* width: $track-w;  */
     height: 6px;
-    background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+    /* background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%); */
 
 }
 
@@ -840,7 +842,8 @@ input[type="range"] {
 
     /* width: $track-w;  */
     height: 6px;
-    background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+    /* background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%); */
 
 }
 
