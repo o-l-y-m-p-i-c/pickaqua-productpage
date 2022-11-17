@@ -811,8 +811,9 @@ input[type="range"] {
     width: 100%;
     position: absolute;
     top: 50%;
+    pointer-events: none;
     transform: translate(0, -50%);
-    z-index: 10
+    /* z-index: 10 */
 }
 
 .rainbow {
