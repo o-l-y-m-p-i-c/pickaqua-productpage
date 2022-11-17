@@ -782,13 +782,14 @@ svg {
     transform: translate(100%, 0px);
 }
 
+/* 
 input[type="range"] {
     margin: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: transparent;
-}
+} */
 
 .range-wrap {
     width: calc(100% - 60px);
@@ -797,15 +798,21 @@ input[type="range"] {
     margin-left: 30px;
     position: relative;
 
-    background:green
+    /* background: green; */
     /* margin: 0 auto 3rem; */
 }
 
 .range {
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: rgba(0, 0, 0, 0);
     width: 100%;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
+    z-index: 10
 }
 
 .bubble {
