@@ -883,14 +883,14 @@ input[type="range"] {
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
-    margin-top: -3px;
+    margin-top: -2px;
     /* margin-top: .5*($track-h - $thumb-d); */
     box-sizing: border-box;
     border: 1px solid white;
     width: 4px;
-    height: 12px;
+    height: 10px;
     border-radius: 0%;
-    background: white;
+    background: transparent;
 }
 
 .range::-moz-range-thumb {
@@ -901,9 +901,9 @@ input[type="range"] {
     border: 1px solid white;
 
     width: 4px;
-    height: 12px;
+    height: 10px;
     border-radius: 0%;
-    background: white;
+    background: transparent;
 }
 
 .range::-ms-thumb {
@@ -914,9 +914,9 @@ input[type="range"] {
     box-sizing: border-box;
     border: 1px solid white;
     width: 4px;
-    height: 12px;
+    height: 10px;
     border-radius: 0%;
-    background: white;
+    background: transparent;
 }
 
 .range::-webkit-slider-container {
