@@ -784,6 +784,9 @@ svg {
 
 input[type="range"] {
     margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .range-wrap {
