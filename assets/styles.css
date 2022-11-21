@@ -19,6 +19,8 @@
     --white: #F3FBFF;
     --light-yellow: #EDC056;
     --dark-yellow: #E3AE30;
+    --main-blue: #0092ED;
+
 
     --small-rounded-radius: 25px;
     --btn-rounded-radius: 50px;
@@ -693,7 +695,7 @@ svg {
 }
 
 .minerals-left-inner__title {
-    color: var(--dark-blue);
+    color: var(--main-blue);
     font-weight: var(--title-font-weight);
     padding-right: 50px;
     width: 100%;

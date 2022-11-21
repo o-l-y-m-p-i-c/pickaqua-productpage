@@ -3478,9 +3478,68 @@
     </main>
     <footer>
     </footer>
-    <script src="./assets/chart/chart.js"></script>
+    <!-- <script src="./assets/chart/chart.js"></script> -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.0-release/chart.min.js"
+        integrity="sha512-weMHTW0LDSh4AbX2KlEf6GiVHrNgcsQa5bfJiZG3t30JM6jb/xB0goXN/n55JNsc8rHdfdOUQ1zj065cLohrUQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script>
+
+        // Chart.defaults.font.size = 50
+
+        let customValue = 20
+        let maxValue = 100
+
+
+        let innerValue = [10, 20, 2100030, 0, 3]
+        let innerLabels = ['Cl', 'Ca', 'K', 'Mg', 'Na']
+
+
+
+        let maxArr = setMaximums(innerValue, maxValue, customValue)
+        let labelArr = setLabels(innerLabels, innerValue)
+        let testWatervalues = setValues(innerValue)
+
+
+        function setMaximums(arr, _maxValue, _customValue) {
+            let innerMaxArr = []
+            for (let i = 0; i < arr.length; i++) {
+                innerMaxArr.push(valForm(_maxValue))
+
+            }
+            return innerMaxArr
+        }
+        function valForm(value) {
+            return value + customValue
+        }
+        function setValues(arr) {
+            let innerValueArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (valForm(arr[i]) > maxValue + customValue * 2) {
+                    innerValueArr.push(maxValue + customValue * 2)
+                } else {
+                    innerValueArr.push(valForm(arr[i]))
+                }
+
+            }
+
+            return innerValueArr
+        }
+        function setLabels(_labelArr, _valueArr) {
+            let innerLabelArr = []
+            for (let i = 0; i < _valueArr.length; i++) {
+                const value = _valueArr[i];
+                const label = _labelArr[i];
+                // console.log(`${label}, ${value}%`)
+                innerLabelArr.push(`${label}, ${value}%`)
+            }
+
+            return innerLabelArr
+        }
+
+
+
         var options = {
             events: [],
             // scales: {
@@ -3492,9 +3551,10 @@
             // },
             scale: {
                 min: 0,
-                max: 115.5 + 16.5,
+                max: 115.5,
                 // max: 100,
                 ticks: {
+                    display: false,
                     stepSize: 16.5,
                     major: false
                 },
@@ -3521,6 +3581,7 @@
             tooltip: {
                 size: 28,
                 enabled: false,
+                hover: { mode: null },
                 callbacks: {
                     label: function (tooltipItem) {
                         return tooltipItem.yLabel;
@@ -3541,31 +3602,64 @@
 
             },
         };
-        const ctx = document.getElementById('myChart');
-        const myChart = new Chart(ctx, {
+        // const ctx = document.getElementById('myChart');
+
+
+        // const myChart = new Chart(ctx, {
+        //     type: 'radar',
+        //     data: {
+        //         labels: labelArr,
+        //         datasets: [{
+        //             label: '',
+        //             data: setValues(innerValue),
+        //             fill: true,
+        //             borderWidth: 3,
+        //             // borderColor: '#4691E8',
+        //             // pointBackgroundColor: '#4691E8',
+        //             // pointBorderColor: '#4691E8',
+        //             backgroundColor: 'rgba(189, 0, 255, 0.35)',
+        //             borderColor: '#9B51E0',
+        //             pointBackgroundColor: '#0092ED',
+        //             pointBorderColor: '#0092ED',
+        //             // pointHoverBackgroundColor: '#fff',
+        //             // pointHoverBorderColor: 'rgb(255, 99, 132)'
+        //             // pointHoverBackgroundColor: '#fff',
+        //             // pointHoverBorderColor: '#4691E8',
+        //             // hoverBackgroundColor: 'transparant'
+        //         }, {
+        //             label: '100%',
+        //             data: maxArr,
+        //             fill: false,
+        //             backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        //             borderColor: 'rgb(54, 162, 235)',
+        //             pointBackgroundColor: 'rgba(54, 162, 235, 0)',
+        //             pointBorderColor: 'rgba(54, 162, 235, 0)',
+        //             pointHoverBackgroundColor: 'rgba(54, 162, 235, 0)',
+        //             pointHoverBorderColor: 'rgba(54, 162, 235, 0)'
+        //         }]
+        //     },
+        //     options: options,
+
+        // });
+        // // myChart.options.scales.ticks.display =
+        // console.log(myChart)
+
+        let ctx = document.querySelector('#myChart').getContext('2d');
+        let chart = new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Cl, 0%', 'Ca, 0%', 'K, 0%', 'Mg, 0%', 'Na, 2%'],
+                labels: labelArr,
                 datasets: [{
-                    label: '',
-                    data: [0 + 16.5, 0 + 16.5, 0 + 16.5, 0 + 16.5, 3 + 16.5],
+                    label: 'RADAR 2',
+                    data: testWatervalues,
                     fill: true,
-                    borderWidth: 3,
-                    // borderColor: '#4691E8',
-                    // pointBackgroundColor: '#4691E8',
-                    // pointBorderColor: '#4691E8',
                     backgroundColor: 'rgba(189, 0, 255, 0.35)',
                     borderColor: '#9B51E0',
                     pointBackgroundColor: '#0092ED',
-                    pointBorderColor: '#0092ED',
-                    // pointHoverBackgroundColor: '#fff',
-                    // pointHoverBorderColor: 'rgb(255, 99, 132)'
-                    // pointHoverBackgroundColor: '#fff',
-                    // pointHoverBorderColor: '#4691E8',
-                    // hoverBackgroundColor: 'transparant'
+                    pointBorderColor: '#0092ED'
                 }, {
                     label: '100%',
-                    data: [100 + 16.5, 100 + 16.5, 100 + 16.5, 100 + 16.5, 100 + 16.5],
+                    data: maxArr,
                     fill: false,
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgb(54, 162, 235)',
@@ -3575,11 +3669,63 @@
                     pointHoverBorderColor: 'rgba(54, 162, 235, 0)'
                 }]
             },
-            options: options,
+            options: {
 
+
+                scale: {
+                    // min: 0,
+                    // max: 115.5,
+
+                    ticks: {
+                        display: false,
+                        beginAtZero: true,
+                        max: 100 + customValue * 2,
+                        min: 0,
+                        stepSize: customValue
+                        // maxTicksLimit: 3,
+                        // stepSize: customValue
+                    },
+
+                    angleLines: {
+                        color: 'rgba(0,0,0,0)' // lines radiating from the center
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: false, callbacks: {
+                        label: function (tooltipItem) {
+                            return tooltipItem.yLabel;
+                        }
+                    }
+                },
+                hover: { mode: null },
+
+                // tooltip: {
+
+                //     // size: 28,
+                //     // enabled: false,
+                //     // callbacks: {
+                //     //     label: function (tooltipItem) {
+                //     //         return tooltipItem.yLabel;
+                //     //     }
+                //     // }
+                // },
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            // This more specific font property overrides the global property
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+
+                },
+            }
         });
-        // myChart.options.scales.ticks.display =
-        console.log(myChart)
     </script>
 </body>
 
