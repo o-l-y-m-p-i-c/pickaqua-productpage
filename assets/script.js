@@ -286,3 +286,125 @@ const modal1 = new PropertiesModal({ container: '.properties-wrapper' })
 const modal2 = new PropertiesModal({ container: '.minerals' })
 const modal3 = new PropertiesModal({ container: '.banner-properties' })
 
+// Chart.defaults.font.size = 50
+
+let customValue = 20
+let maxValue = 100
+
+
+let innerValue = [10, 20, 230, 0, 3]
+let innerLabels = ['Cl', 'Ca', 'K', 'Mg', 'Na']
+
+
+
+let maxArr = setMaximums(innerValue, maxValue, customValue)
+let labelArr = setLabels(innerLabels, innerValue)
+let testWatervalues = setValues(innerValue)
+
+
+function setMaximums(arr, _maxValue, _customValue) {
+  let innerMaxArr = []
+  for (let i = 0; i < arr.length; i++) {
+    innerMaxArr.push(valForm(_maxValue))
+
+  }
+  return innerMaxArr
+}
+function valForm(value) {
+  return value + customValue
+}
+function setValues(arr) {
+  let innerValueArr = []
+  for (let i = 0; i < arr.length; i++) {
+    if (valForm(arr[i]) > maxValue + customValue * 2) {
+      innerValueArr.push(maxValue + customValue * 2)
+    } else {
+      innerValueArr.push(valForm(arr[i]))
+    }
+
+  }
+
+  return innerValueArr
+}
+function setLabels(_labelArr, _valueArr) {
+  let innerLabelArr = []
+  for (let i = 0; i < _valueArr.length; i++) {
+    const value = _valueArr[i];
+    const label = _labelArr[i];
+    // console.log(`${label}, ${value}%`)
+    innerLabelArr.push(`${label}, ${value}%`)
+  }
+
+  return innerLabelArr
+}
+
+
+
+Chart.defaults.global.defaultFontFamily = 'Montserrat';
+Chart.defaults.global.defaultFontStyle = 'Bold';
+Chart.defaults.global.defaultFontColor = '#0092ED'
+Chart.defaults.global.elements.point.radius = 1.5
+console.log(Chart.defaults.global)
+
+
+let ctx = document.querySelector('#myChart').getContext('2d');
+let chart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: labelArr,
+    datasets: [{
+      label: 'RADAR 2',
+      data: testWatervalues,
+      fill: true,
+      backgroundColor: 'rgba(189, 0, 255, 0.35)',
+      borderColor: '#9B51E0',
+      // pointBackgroundColor: 'rgba(54, 162, 235, 0)',
+      pointBorderColor: 'rgba(54, 162, 235, 0)',
+      pointBackgroundColor: '#9B51E0',
+      // pointBorderColor: '#0092ED'
+    }, {
+      label: '100%',
+      data: maxArr,
+      fill: false,
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235)',
+      // pointBackgroundColor: 'rgba(54, 162, 235, 0)',
+      pointBorderColor: 'rgba(54, 162, 235, 0)',
+      pointHoverBackgroundColor: 'rgba(54, 162, 235, 0)',
+      pointHoverBorderColor: 'rgba(54, 162, 235, 0)',
+      pointBackgroundColor: 'rgba(54, 162, 235)',
+    }]
+  },
+  options: {
+
+
+    scale: {
+
+      ticks: {
+        display: false,
+        beginAtZero: true,
+        max: 100 + customValue * 2,
+        min: 0,
+        stepSize: customValue,
+        fontColor: 'white',
+      },
+
+      angleLines: {
+        color: 'rgba(0,0,0,0)' // lines radiating from the center
+      }
+    },
+    legend: {
+      display: false
+    },
+    tooltips: {
+      enabled: false, callbacks: {
+        label: function (tooltipItem) {
+          return tooltipItem.yLabel;
+        }
+      }
+    },
+    hover: { mode: null },
+
+  },
+  // defaults: defaultOptions
+});

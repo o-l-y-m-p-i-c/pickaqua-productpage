@@ -98,10 +98,24 @@ img {
     object-fit: contain;
 }
 
+
+.grid-content {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 40% 60%;
+
+}
+
+
+.product-page-aside {
+    /* width: 300px; */
+
+}
+
 .container {
     margin: 0 auto;
-    width: 1440px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 1440px
 }
 
 
@@ -135,12 +149,25 @@ img {
 .banner-product-slider .swiper-slide {
     max-width: 100%;
     text-align: center;
-    min-height: 800px;
-    height: 90vh;
+    /* min-height: 800px; */
+    /* height: 50vh; */
     position: relative;
     background-color: white;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+    display: none !important
+}
+
+.chart-wrap {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.chart-wrap canvas {
+    width: 100% !important;
+}
 
 .banner-product-slider .swiper-pagination-bullet {
     border-radius: 0px;
@@ -156,7 +183,7 @@ img {
 .banner-product-slider .swiper-slide img {
     left: 0;
     top: 0;
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     height: 100%;
     object-position: center center;
@@ -179,18 +206,25 @@ img {
 }
 
 .banner-right {
-    width: 50%;
+    /* width: 50%; */
     max-width: 100%;
 }
 
 .banner-inner {
-    padding: 100px 40px;
+    padding: 40px 20px;
+    /* padding: 100px 40px; */
 }
 
 .banner-product-slider {
 
     width: 100%;
     max-width: 100%;
+}
+
+.banner-product-slider__wrapper {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
 }
 
 .banner-title {
@@ -342,7 +376,7 @@ svg {
     display: inline-flex;
     flex-direction: column;
     width: 100%;
-    max-width: 360px;
+    /* max-width: 360px; */
     /* padding: 3px 20px; */
     border-radius: var(--btn-rounded-radius);
     background: var(--jean-btn-unactive);
@@ -662,11 +696,11 @@ svg {
 }
 
 .minerals-left {
-    width: 40%;
+    width: 100%;
 }
 
 .minerals-right {
-    width: 60%;
+    width: 100%;
 }
 
 .minerals-left-inner {
@@ -719,8 +753,8 @@ svg {
 }
 
 .minerals-right-inner {
-    background-color: var(--dark-blue);
-    border-radius: var(--small-rounded-radius);
+    /* background-color: var(--dark-blue); */
+    /* border-radius: var(--small-rounded-radius); */
     margin: 0 20px 0px;
     padding: 20px;
 }
@@ -942,8 +976,8 @@ input[type="range"] {
 .minerals-progress-item-wrap {
 
     padding: 25px 15px;
-    filter: drop-shadow(0 10px 10px rgb(0 0 0 / 0.2));
-    border-radius: var(--small-rounded-radius);
+    /* filter: drop-shadow(0 10px 10px rgb(0 0 0 / 0.2)); */
+    /* border-radius: var(--small-rounded-radius); */
 }
 
 .minerals-progress-item {
@@ -989,16 +1023,23 @@ input[type="range"] {
 .fast-button-container {
     margin-top: var(--section-margin-top-gap);
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+    /* flex-direction: column; */
+    /* align-items: center; */
     row-gap: 20px;
+    column-gap: 20px;
 }
 
 .fast-button {
     padding: 25px 100px;
-    width: 500px;
+    width: 100%;
     height: 80px;
-    max-width: 100%;
+    max-width: 500px;
+    /* max-width: calc(50% - 10px); */
+    width: 100%;
+    min-width: 280px;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -1053,14 +1094,21 @@ input[type="range"] {
     margin-right: 10px;
 } */
 
+/* #AboutWater,
+#FastButtons {
+    grid-column-start: 1;
+    grid-column-end: 3;
+} */
 
 .about-water {
     margin-top: var(--section-margin-top-gap);
     margin-bottom: 60px;
-    width: 840px;
+    width: 100%;
+    max-width: 840px;
     display: flex;
     flex-direction: column;
     padding: 0 20px;
+
 }
 
 .about-water-head__img-wrap {
@@ -1178,6 +1226,14 @@ input[type="range"] {
         font-size: 28px
     }
 
+    .grid-content {
+        grid-template-columns: 100%;
+    }
+
+    /* .product-page-aside {
+        max-width: 100%
+    } */
+
     .other-minerals-wrap {
         row-gap: 0px;
     }
@@ -1289,10 +1345,7 @@ input[type="range"] {
         justify-content: center;
     }
 
-    .swiper-button-prev,
-    .swiper-button-next {
-        display: none !important
-    }
+
 
     /* .tag-wrapper {
         margin-top: var(--banner-margin-top-gap);
