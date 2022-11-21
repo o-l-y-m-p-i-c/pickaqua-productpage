@@ -365,7 +365,7 @@ svg {
 }
 
 .zhan-btn:hover {
-    transform: scale(1.05)
+    transform: scale(1.02)
 }
 
 .adds {
@@ -376,7 +376,8 @@ svg {
     display: inline-flex;
     flex-direction: column;
     width: 100%;
-    /* max-width: 360px; */
+    max-width: 360px;
+    cursor: pointer;
     /* padding: 3px 20px; */
     border-radius: var(--btn-rounded-radius);
     background: var(--jean-btn-unactive);
@@ -393,9 +394,7 @@ svg {
     color: black
 }
 
-.zhan-btn:hover {
-    cursor: pointer;
-}
+
 
 .zhan-btn.active {
     border-radius: 20px;
@@ -785,7 +784,7 @@ svg {
     margin-top: 10px;
 }
 
-.datalist {
+datalist {
     display: flex;
     justify-content: space-between;
     /* position: absolute; */
@@ -796,7 +795,7 @@ svg {
     pointer-events: none;
 }
 
-.datalist .option {
+datalist option {
     /* padding: 5px 0; */
     width: 30px;
     height: 30px;
@@ -810,11 +809,11 @@ svg {
 
 }
 
-.datalist .option:first-child {
+datalist option:first-child {
     transform: translate(-100%, 0px);
 }
 
-.datalist .option:last-child {
+datalist option:last-child {
     transform: translate(100%, 0px);
 }
 
