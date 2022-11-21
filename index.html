@@ -3492,7 +3492,7 @@
         let maxValue = 100
 
 
-        let innerValue = [10, 20, 2100030, 0, 3]
+        let innerValue = [10, 20, 230, 0, 3]
         let innerLabels = ['Cl', 'Ca', 'K', 'Mg', 'Na']
 
 
@@ -3540,109 +3540,12 @@
 
 
 
-        var options = {
-            events: [],
-            // scales: {
-            //     y: {
-            //         ticks: {
+        Chart.defaults.global.defaultFontFamily = 'Montserrat';
+        Chart.defaults.global.defaultFontStyle = 'Bold';
+        Chart.defaults.global.defaultFontColor = '#0092ED'
+        Chart.defaults.global.elements.point.radius = 1.5
+        console.log(Chart.defaults.global)
 
-            //         }
-            //     }
-            // },
-            scale: {
-                min: 0,
-                max: 115.5,
-                // max: 100,
-                ticks: {
-                    display: false,
-                    stepSize: 16.5,
-                    major: false
-                },
-                y: {
-                    display: false, // Hide Y axis labels
-                    ticks: {
-                        display: false
-                    }
-                },
-                x: {
-                    display: false,
-                    ticks: {
-                        display: false
-                    } // Hide X axis labels
-                },
-                r: {
-                    angleLines: {
-                        display: false
-                    },
-                    suggestedMin: 50,
-                    suggestedMax: 100
-                }
-            },
-            tooltip: {
-                size: 28,
-                enabled: false,
-                hover: { mode: null },
-                callbacks: {
-                    label: function (tooltipItem) {
-                        return tooltipItem.yLabel;
-                    }
-                }
-            },
-
-            plugins: {
-                legend: {
-                    display: false,
-                    labels: {
-                        // This more specific font property overrides the global property
-                        font: {
-                            size: 12
-                        }
-                    }
-                },
-
-            },
-        };
-        // const ctx = document.getElementById('myChart');
-
-
-        // const myChart = new Chart(ctx, {
-        //     type: 'radar',
-        //     data: {
-        //         labels: labelArr,
-        //         datasets: [{
-        //             label: '',
-        //             data: setValues(innerValue),
-        //             fill: true,
-        //             borderWidth: 3,
-        //             // borderColor: '#4691E8',
-        //             // pointBackgroundColor: '#4691E8',
-        //             // pointBorderColor: '#4691E8',
-        //             backgroundColor: 'rgba(189, 0, 255, 0.35)',
-        //             borderColor: '#9B51E0',
-        //             pointBackgroundColor: '#0092ED',
-        //             pointBorderColor: '#0092ED',
-        //             // pointHoverBackgroundColor: '#fff',
-        //             // pointHoverBorderColor: 'rgb(255, 99, 132)'
-        //             // pointHoverBackgroundColor: '#fff',
-        //             // pointHoverBorderColor: '#4691E8',
-        //             // hoverBackgroundColor: 'transparant'
-        //         }, {
-        //             label: '100%',
-        //             data: maxArr,
-        //             fill: false,
-        //             backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        //             borderColor: 'rgb(54, 162, 235)',
-        //             pointBackgroundColor: 'rgba(54, 162, 235, 0)',
-        //             pointBorderColor: 'rgba(54, 162, 235, 0)',
-        //             pointHoverBackgroundColor: 'rgba(54, 162, 235, 0)',
-        //             pointHoverBorderColor: 'rgba(54, 162, 235, 0)'
-        //         }]
-        //     },
-        //     options: options,
-
-        // });
-        // // myChart.options.scales.ticks.display =
-        // console.log(myChart)
 
         let ctx = document.querySelector('#myChart').getContext('2d');
         let chart = new Chart(ctx, {
@@ -3655,35 +3558,35 @@
                     fill: true,
                     backgroundColor: 'rgba(189, 0, 255, 0.35)',
                     borderColor: '#9B51E0',
-                    pointBackgroundColor: '#0092ED',
-                    pointBorderColor: '#0092ED'
+                    // pointBackgroundColor: 'rgba(54, 162, 235, 0)',
+                    pointBorderColor: 'rgba(54, 162, 235, 0)',
+                    pointBackgroundColor: '#9B51E0',
+                    // pointBorderColor: '#0092ED'
                 }, {
                     label: '100%',
                     data: maxArr,
                     fill: false,
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgb(54, 162, 235)',
-                    pointBackgroundColor: 'rgba(54, 162, 235, 0)',
+                    borderColor: 'rgba(54, 162, 235)',
+                    // pointBackgroundColor: 'rgba(54, 162, 235, 0)',
                     pointBorderColor: 'rgba(54, 162, 235, 0)',
                     pointHoverBackgroundColor: 'rgba(54, 162, 235, 0)',
-                    pointHoverBorderColor: 'rgba(54, 162, 235, 0)'
+                    pointHoverBorderColor: 'rgba(54, 162, 235, 0)',
+                    pointBackgroundColor: 'rgba(54, 162, 235)',
                 }]
             },
             options: {
 
 
                 scale: {
-                    // min: 0,
-                    // max: 115.5,
 
                     ticks: {
                         display: false,
                         beginAtZero: true,
                         max: 100 + customValue * 2,
                         min: 0,
-                        stepSize: customValue
-                        // maxTicksLimit: 3,
-                        // stepSize: customValue
+                        stepSize: customValue,
+                        fontColor: 'white',
                     },
 
                     angleLines: {
@@ -3702,29 +3605,8 @@
                 },
                 hover: { mode: null },
 
-                // tooltip: {
-
-                //     // size: 28,
-                //     // enabled: false,
-                //     // callbacks: {
-                //     //     label: function (tooltipItem) {
-                //     //         return tooltipItem.yLabel;
-                //     //     }
-                //     // }
-                // },
-                plugins: {
-                    legend: {
-                        display: false,
-                        labels: {
-                            // This more specific font property overrides the global property
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-
-                },
-            }
+            },
+            // defaults: defaultOptions
         });
     </script>
 </body>
