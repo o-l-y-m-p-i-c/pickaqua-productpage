@@ -129,6 +129,7 @@ img {
 .tag-wrapper {
     display: flex;
     flex-wrap: wrap;
+    /* justify-content: center; */
     margin-top: 20px;
     column-gap: 20px;
     row-gap: 10px;
@@ -202,8 +203,13 @@ img {
     display: flex;
     column-gap: 20px;
     row-gap: 15px;
-    justify-content: space-between;
+    justify-content: center;
+    /* justify-content: space-between; */
     flex-wrap: wrap;
+}
+
+.corn-item.empty {
+    display: none !important
 }
 
 .banner-left {
@@ -246,6 +252,8 @@ img {
 
 .banner-buttons {
     margin-top: var(--banner-margin-top-gap);
+    display: flex;
+    justify-content: center
 }
 
 .corn-container {
@@ -283,6 +291,7 @@ img {
 
 
 .prop {
+    margin-top: 3px;
     display: flex;
     align-items: center;
 }
@@ -295,7 +304,8 @@ img {
 .banner-title__icon-wrap {
     margin-left: 5px;
     width: 29px;
-    height: 29px
+    height: 29px;
+    display: flex;
 }
 
 .banner-title__icon {
