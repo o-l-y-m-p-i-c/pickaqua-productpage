@@ -846,7 +846,7 @@ svg {
     margin-top: 10px;
 }
 
-datalist {
+.datalist {
     display: flex;
     justify-content: space-between;
     /* position: absolute; */
@@ -857,7 +857,11 @@ datalist {
     pointer-events: none;
 }
 
-datalist option {
+datalist#minerals-range {
+    display: none;
+}
+
+.datalist .option {
     /* padding: 5px 0; */
     width: 30px;
     height: 30px;
@@ -871,11 +875,11 @@ datalist option {
 
 }
 
-datalist option:first-child {
+.datalist .option:first-child {
     transform: translate(-100%, 0px);
 }
 
-datalist option:last-child {
+.datalist .option:last-child {
     transform: translate(100%, 0px);
 }
 
