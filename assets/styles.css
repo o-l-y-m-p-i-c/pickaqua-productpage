@@ -1167,7 +1167,7 @@ input[type="range"] {
 
 .about-water {
     margin-top: var(--section-margin-top-gap);
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     width: 100%;
     max-width: 840px;
     display: flex;
@@ -1279,6 +1279,31 @@ input[type="range"] {
     background: #366bbb3d;
 }
 
+.link-section {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin-bottom: 30px
+}
+
+.link-item {
+    text-decoration: none;
+}
+
+.link-item__img-wrap {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.link-item__img {
+    position: abolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
 
 @media screen and (max-width: 1024px) {
 
