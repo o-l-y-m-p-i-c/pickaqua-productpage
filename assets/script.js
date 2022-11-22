@@ -40,10 +40,14 @@ dashItem.forEach(item => {
     const parent = progress.closest('.js-circle-item')
     const maxValue = parent.getAttribute('data-max-value')
     const currentValue = parent.getAttribute('data-current-value')
-    const step = Number((Number(currentValue) / Number(maxValue)).toFixed(5)) * 10
+
+    const result = (Number(currentValue) / Number(maxValue)) * 75
+    const step = Number((Number(currentValue) / Number(maxValue))) * 10
+    console.log(result)
+
     let flag = true
-    if (flag) {
-      const i = onLoadCircleDiagram(Number(currentValue), progress, step)
+    if (flag && result) {
+      const i = onLoadCircleDiagram(Number(result), progress, step)
       if (!i) {
         flag = i
       }
@@ -59,13 +63,27 @@ function onLoadCircleDiagram(maxValue, item, step) {
   let interval = setInterval(load, 100);
   // const flag = true
   function load() {
-    if (mainValue >= maxValue) {
+    if (maxValue == 0) {
+      clearInterval(interval);
+      item.style.strokeDashoffset = 75
+      return false
+    }
+    if (mainValue > maxValue) {
       clearInterval(interval);
       // flag = false
       return false
     } else {
-      mainValue += step;
-      item.style.strokeDashoffset = 75 - mainValue
+      if ((mainValue + step) >= maxValue) {
+        mainValue += (maxValue - mainValue);
+        item.style.strokeDashoffset = 75 - mainValue
+
+        clearInterval(interval);
+        return false
+      } else {
+        mainValue += step;
+        item.style.strokeDashoffset = 75 - mainValue
+      }
+
 
     }
   }
